@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+
+// 定义Hello 服务
+service LoginSrv {
+    rpc Login(LoginRequest) returns(LoginResponse) {}
+    rpc Register(RegisterRequest) returns(RegisterResponse) {}
+}
+
+// login 发送的消息
+message LoginRequest {
+    string username = 1;    // 用户名
+    string password = 2;    // 密码
+}
+
+// login 返回消息
+message LoginResponse {
+    string code = 1;    // 状态码
+    string msg = 2;     // 状态信息
+    string data = 3;    // 返回的数据
+}
+
+// register 请求消息
+message RegisterRequest {
+    string username = 1;
+    string password = 2;
+    string email = 3;
+    string phone = 4;
+}
+
+// register 返回消息
+message RegisterResponse {
+    string status = 1;
+    string message = 2;
+}
